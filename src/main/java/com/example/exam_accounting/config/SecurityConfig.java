@@ -40,7 +40,7 @@ public class SecurityConfig {
 
                 .authorizeHttpRequests(auth -> auth
                         // Các endpoint login công khai không cần kiểm tra token
-                        .requestMatchers("/", "/login/**", "/oauth2/**").permitAll()
+                        .requestMatchers("/", "/login/**", "/oauth2/**", "/api/public/**").permitAll()
                         // TẤT CẢ các API còn lại bắt buộc phải có token hợp lệ mới được vào
                         .anyRequest().authenticated()
                 )

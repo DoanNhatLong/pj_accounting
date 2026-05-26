@@ -19,4 +19,5 @@ public interface ICustomerRepository extends JpaRepository<Customer, Long> {
         FROM customer
         """, nativeQuery = true)
     List<ICustomerProjection> findAllCustomerProjections();
+    Customer findById(long id);
 }

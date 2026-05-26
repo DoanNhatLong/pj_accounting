@@ -34,8 +34,9 @@ public class Document {
     private User user;
 
     @NotNull
+    @Enumerated(EnumType.STRING)
     @Column(name = "document_type", nullable = false, columnDefinition = "ENUM('INVOICE', 'RECEIPT', 'PAYMENT', 'WAREHOUSE_IMPORT')")
-    private String documentType;
+    DocumentType documentType;
 
     @Size(max = 50)
     @NotNull
@@ -63,8 +64,7 @@ public class Document {
     private String status;
 
     @Size(max = 512)
-    @NotNull
-    @Column(name = "file_path", nullable = false, length = 512)
+    @Column(name = "file_path", length = 512)
     private String filePath;
 
     @Column(name = "ocr_raw_result", columnDefinition = "json")
@@ -73,4 +73,11 @@ public class Document {
     @ColumnDefault("CURRENT_TIMESTAMP")
     @Column(name = "created_at", insertable = false, updatable = false)
     private LocalDateTime createdAt;
+
+    public enum DocumentType {
+        INVOICE,
+        RECEIPT,
+        PAYMENT,
+        WAREHOUSE_IMPORT
+    }
 }

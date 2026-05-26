@@ -7,4 +7,5 @@ import java.util.List;
 
 public interface IUserService {
     List<IUserProjection> getAllUsers();
+    User findById(long id);
 }

@@ -21,5 +21,6 @@ public interface IUserRepository extends JpaRepository<User, Long> {
         """, nativeQuery = true)
     List<IUserProjection> findAllUserProjections();
     Optional<User> findByEmail(String email);
+    User findById(long id);
 
 }

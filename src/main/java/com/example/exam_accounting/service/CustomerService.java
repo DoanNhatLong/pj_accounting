@@ -1,5 +1,6 @@
 package com.example.exam_accounting.service;
 
+import com.example.exam_accounting.entity.Customer;
 import com.example.exam_accounting.projection.ICustomerProjection;
 import com.example.exam_accounting.repository.ICustomerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,5 +16,10 @@ public class CustomerService implements ICustomerService {
     @Override
     public List<ICustomerProjection> getAllCustomers() {
         return customerRepository.findAllCustomerProjections();
+    }
+
+    @Override
+    public Customer findById(long id) {
+        return customerRepository.findById(id);
     }
 }

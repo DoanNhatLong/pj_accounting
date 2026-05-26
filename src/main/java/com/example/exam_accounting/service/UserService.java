@@ -17,4 +17,9 @@ public class UserService implements IUserService {
     public List<IUserProjection> getAllUsers() {
         return userRepository.findAllUserProjections();
     }
+
+    @Override
+    public User findById(long id) {
+        return userRepository.findById(id);
+    }
 }
